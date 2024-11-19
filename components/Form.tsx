@@ -74,6 +74,7 @@ export default function Form() {
 
       router.push("/rsvp/success");
     } catch (error) {
+      console.error("Submission error:", error);
       setShowPopup(true);
       setTimeout(() => {
         router.push("/");
@@ -100,7 +101,7 @@ export default function Form() {
   }, [showPopup]);
 
   return (
-    <div className="mt-8 md:pl-96">
+    <div className="mt-8 md:pl-[500px]">
       {showPopup && (
         <div className="p-5 rounded-xl bg-[#529864] text-white mx-auto my-8 z-50 shadow-md w-1/2 text-center font-sans">
           <h1 className="text-lg font-bold">Submission Successful!</h1>
@@ -111,7 +112,7 @@ export default function Form() {
       <h1 className="text-3xl text-center font-bold">RSVP</h1>
       <form className="mt-8 mx-10 md:mx-72" onSubmit={handleSubmit}>
         <label className="text-lg">
-          Name(s) of our fabulous guests:{" "}
+          Name(s) of our fabulous guests:
           <input
             placeholder="John Doe"
             className="font-normal pl-3 rounded-lg text-black bg-[#fcf7f1]"
